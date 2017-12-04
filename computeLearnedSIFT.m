@@ -2,7 +2,7 @@ function [locs,desc] = computeLearnedSIFT(im, GaussianPyramid, locsDoG, k, level
 [R,C,L] = size(GaussianPyramid);
 patchWidth = 9;
 locs = zeros(0,3);
-desc = zeros(0,128);
+desc = [];
 norm_patch_size = 64;
 
 for i=1:size(locsDoG,1)
@@ -30,6 +30,6 @@ for i=1:size(locsDoG,1)
         imwrite(patch,'tmp.bmp');
         system('python compute_desc.py');
         load('learned_desc.mat');
-        desc = double(learned_desc);
+        desc = [desc;double(learned_desc)];
     end
 end

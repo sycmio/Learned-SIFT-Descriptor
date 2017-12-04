@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6a2ea7c-7d43-41a8-9ad2-91bd69522c44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model.pt" afterPath="$PROJECT_DIR$/model.pt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/computeSIFT.m" afterPath="$PROJECT_DIR$/computeSIFT.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute_desc.py" afterPath="$PROJECT_DIR$/compute_desc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testMatch.m" afterPath="$PROJECT_DIR$/testMatch.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/learned_desc.mat" afterPath="$PROJECT_DIR$/learned_desc.mat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp.bmp" afterPath="$PROJECT_DIR$/tmp.bmp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
