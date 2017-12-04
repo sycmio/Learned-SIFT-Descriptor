@@ -12,7 +12,7 @@ for i=1:size(locsDoG,1)
         locs = [locs;locsDoG(i,:)];
         % compute 128-D discriptor
         
-        patch = GaussianPyramid(locsDoG(i,2)+1-bound:locsDoG(i,2)+bound,locsDoG(i,1)+1-bound:locsDoG(i,1)+bound,level);       
+        patch = im(locsDoG(i,2)+1-bound:locsDoG(i,2)+bound,locsDoG(i,1)+1-bound:locsDoG(i,1)+bound);       
         % compute major gradient
         tmp_patch = GaussianPyramid(locsDoG(i,2)+1-patch_half_size:locsDoG(i,2)+patch_half_size,locsDoG(i,1)+1-patch_half_size:locsDoG(i,1)+patch_half_size,level);
         tmp_patch = imresize(tmp_patch, [norm_patch_size norm_patch_size]);
