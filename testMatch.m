@@ -15,7 +15,7 @@ im2 = im2double(im2);
 if size(im2,3)==3
     im2= rgb2gray(im2);
 end
-[locs2, desc2] = siftLite(im2);
+[locs2, desc2] = learned_siftLite(im2);
 
 [matches] = siftMatch(desc1, desc2);
 plotMatches(im1, im2, matches, locs1, locs2)
