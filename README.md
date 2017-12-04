@@ -4,5 +4,5 @@ HW6 for 16-720
 ..* Anaconda
 ..* PyTorch: conda install pytorch torchvision -c soumith
 
-#T o run the code
+# To run the code
 run testMatch.m
