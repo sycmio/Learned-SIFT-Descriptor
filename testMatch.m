@@ -5,7 +5,7 @@ im1 = im2double(im1);
 if size(im1,3)==3
     im1= rgb2gray(im1);
 end
-[locs1, desc1] = siftLite(im1);
+[locs1, desc1] = learned_siftLite(im1);
 
 im2 = imread('../data/chickenbroth_01.jpg');
 % im2 = imrotate(im2,180);

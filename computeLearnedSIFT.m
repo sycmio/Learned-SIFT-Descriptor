@@ -2,9 +2,8 @@ function [locs,desc] = computeLearnedSIFT(im, GaussianPyramid, locsDoG, k, level
 [R,C,L] = size(GaussianPyramid);
 patchWidth = 9;
 locs = zeros(0,3);
-desc = [];
 norm_patch_size = 64;
-
+patches=zeros(1,64,64);
 for i=1:size(locsDoG,1)
     level = find(levels==locsDoG(i,3));
     patch_half_size = floor(8*k^(1+levels(level)-levels(1)));
@@ -26,10 +25,10 @@ for i=1:size(locsDoG,1)
         w = floor(w/2);
         patch = patch(h+1-patch_half_size:h+patch_half_size,w+1-patch_half_size:w+patch_half_size);
         patch = imresize(patch, [norm_patch_size norm_patch_size]);
-        
-        imwrite(patch,'tmp.bmp');
-        system('python compute_desc.py');
-        load('learned_desc.mat');
-        desc = [desc;double(learned_desc)];
+        patches(end,:,:)=patch;
+        patches=[patches;zeros(1,64,64)];
     end
 end
+save('patch.mat','patches');
+system('python compute_desc.py');
+load('learned_desc.mat');
