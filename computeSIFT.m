@@ -26,7 +26,6 @@ for i=1:size(locsDoG,1)
         w = floor(w/2);
         patch = patch(h+1-patch_half_size:h+patch_half_size,w+1-patch_half_size:w+patch_half_size);
         patch = imresize(patch, [norm_patch_size norm_patch_size]);
-        
         desc = [desc;zeros(1,128)];
         for p=1:4
             for q=1:4

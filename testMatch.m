@@ -5,7 +5,7 @@ im1 = im2double(im1);
 if size(im1,3)==3
     im1= rgb2gray(im1);
 end
-[locs1, desc1] = siftLite(im1);
+[locs1, desc1] = learned_siftLite(im1);
 
 im2 = imread('../data/chickenbroth_01.jpg');
 % im2 = imrotate(im2,180);
@@ -15,7 +15,7 @@ im2 = im2double(im2);
 if size(im2,3)==3
     im2= rgb2gray(im2);
 end
-[locs2, desc2] = siftLite(im2);
+[locs2, desc2] = learned_siftLite(im2);
 
 [matches] = siftMatch(desc1, desc2);
 plotMatches(im1, im2, matches, locs1, locs2)
