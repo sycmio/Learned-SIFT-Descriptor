@@ -7,7 +7,7 @@ function [matches] = siftMatch(desc1, desc2, ratio)
 %									into desc1 and the second column are indices into desc2
 
 if nargin<3
-    ratio = .6;
+    ratio = .8;
 end
 
 % compute the pairwise Hamming distance

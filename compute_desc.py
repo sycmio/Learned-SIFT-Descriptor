@@ -7,7 +7,7 @@ import scipy.io
 import time
 import numpy as np
 def compute_desc():
-    net=SiameseNetwork()
+    net=SiameseNetwork().cuda()
 
     net.load_state_dict(torch.load('model.pt'))
     net.train(False)
@@ -20,10 +20,10 @@ def compute_desc():
         img=img.reshape(1,1,img.shape[0],img.shape[1])
         X=torch.from_numpy(img)
 
-        _,output=net(Variable(X.float()),Variable(X.float()))
+        _,output=net(Variable(X.float()).cuda(),Variable(X.float()).cuda())
 
         #print 'time:'+str(end-start)
-        mat[i]=output.data.numpy()
+        mat[i]=output.data.cpu().numpy()
     scipy.io.savemat('learned_desc.mat',mdict={'desc':mat})
     # print mat.tolist()
     return 0
