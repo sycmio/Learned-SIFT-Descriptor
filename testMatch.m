@@ -1,5 +1,7 @@
-im1 = imread('../data/chickenbroth_01.jpg');
-im2 = imread('../data/chickenbroth_02.jpg');
+im1 = imread('../data/book.jpg');
+im1 = imrotate(im1, -90);
+im1 = imresize(im1, 0.1);
+%im2 = imread('../data/2.png');
 % im1 = imread('../data/incline_L.png');
 % im1 = imread('../data/pf_scan_scaled.jpg');
 im1 = im2double(im1);
@@ -8,8 +10,8 @@ if size(im1,3)==3
 end
 [locs1, desc1] = learned_siftLite(im1);
 
-% im2 = imread('../data/chickenbroth_01.jpg');
-%im2 = imrotate(im2,180);
+%im2 = imread('../data/chickenbroth_01.jpg');
+im2 = imrotate(im1,20);
 % im2 = imread('../data/incline_R.png');
 % im2 = imread('../data/pf_stand.jpg');
 im2 = im2double(im2);
