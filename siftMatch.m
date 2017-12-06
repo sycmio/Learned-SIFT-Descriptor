@@ -16,8 +16,8 @@ ix = 1:size(desc1,1);
 
 % suprress match between descriptors that are not distriminative.
 r = D(1,:)./D(2,:); 
-ix = ix(r < ratio | isnan(r)); 
-I2 = I(1,r < ratio | isnan(r));
+ix = ix((r < ratio & D(1,:)<0.5) | isnan(r)); 
+I2 = I(1,(r < ratio & D(1,:)<0.5) | isnan(r));
  
 %output
 matches = [ix' I2'];
