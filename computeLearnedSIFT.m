@@ -1,12 +1,9 @@
 function [locs,desc] = computeLearnedSIFT(im, GaussianPyramid, locsDoG, k, levels)
 [R,C,L] = size(GaussianPyramid);
-patchWidth = 9;
 locs = zeros(0,3);
-norm_patch_size = 64;
 patches=zeros(1,64,64);
 for i=1:size(locsDoG,1)
-    level = find(levels==locsDoG(i,3));
-    patch_half_size = floor(8*k^(1+levels(level)-levels(1)));
+
 %     bound = floor(sqrt(2)*patch_half_size
     bound = 32;
     if locsDoG(i,1)>=bound && locsDoG(i,2)>=bound && locsDoG(i,1)<=C-bound && locsDoG(i,2)<=R-bound

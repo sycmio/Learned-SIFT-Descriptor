@@ -7,7 +7,11 @@ function [matches] = siftMatch(desc1, desc2, ratio)
 %									into desc1 and the second column are indices into desc2
 
 if nargin<3
+<<<<<<< HEAD
     ratio = .;
+=======
+    ratio = .7;
+>>>>>>> 5dc9d5f515babe0140f91bc4ea2a6b668de3ceee
 end
 
 % compute the pairwise Hamming distance
@@ -16,8 +20,13 @@ ix = 1:size(desc1,1);
 
 % suprress match between descriptors that are not distriminative.
 r = D(1,:)./D(2,:); 
+<<<<<<< HEAD
 ix = ix(r < ratio | isnan(r)); 
 I2 = I(1,r < ratio | isnan(r));
+=======
+ix = ix((r < ratio)& D(1,:)<2 | isnan(r)); 
+I2 = I(1,(r < ratio)& D(1,:)<2| isnan(r));
+>>>>>>> 5dc9d5f515babe0140f91bc4ea2a6b668de3ceee
  
 %output
 matches = [ix' I2'];
