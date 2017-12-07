@@ -6,19 +6,17 @@ im1 = imresize(im1, 0.1);
 % im1 = imread('../data/pf_scan_scaled.jpg');
 im1 = im2double(im1);
 if size(im1,3)==3
-    im1= rgb2gray(im1);
+    im1_gray= rgb2gray(im1);
 end
-[locs1, desc1] = learned_siftLite(im1);
+[locs1, desc1] = learned_siftLite(im1_gray);
 
 %im2 = imread('../data/chickenbroth_01.jpg');
 im2 = imrotate(im1,20);
+im2_gray=imrotate(im1_gray,20);
 % im2 = imread('../data/incline_R.png');
 % im2 = imread('../data/pf_stand.jpg');
 im2 = im2double(im2);
-if size(im2,3)==3
-    im2= rgb2gray(im2);
-end
-[locs2, desc2] = learned_siftLite(im2);
+[locs2, desc2] = learned_siftLite(im2_gray);
 
 [matches] = siftMatch(desc1, desc2);
-plotMatches(im1, im2, matches, locs1, locs2)
+img=getNewImg(im1, im2, matches, locs1, locs2);
